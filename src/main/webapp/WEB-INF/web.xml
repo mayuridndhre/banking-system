@@ -1,0 +1,13 @@
+<web-app xmlns="http://java.sun.com/xml/ns/javaee" version="3.0">
+
+  <servlet>
+    <servlet-name>RegisterServlet</servlet-name>
+    <servlet-class>servlet.RegisterServlet</servlet-class>
+  </servlet>
+
+  <servlet-mapping>
+    <servlet-name>RegisterServlet</servlet-name>
+    <url-pattern>/RegisterServlet</url-pattern>
+  </servlet-mapping>
+
+</web-app>
