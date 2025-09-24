@@ -2,36 +2,35 @@ pipeline {
     agent any
 
     tools {
-        jdk 'JDK-21'       // Jenkins मध्ये configure केलेले JDK नाव
+        jdk 'JDK-21'       // Jenkins मध्ये configure केलेले JDK 21 tool name
     }
 
     environment {
-        TOMCAT_HOME = "C:\\apache-tomcat-9.0.100"
-        DEPLOY_PATH = "${TOMCAT_HOME}\\webapps\\BankingSystem"
+        TOMCAT_HOME = 'C:\\apache-tomcat-9.0.100' // तुमचा Tomcat folder path
     }
 
     stages {
+
         stage('Checkout') {
             steps {
                 git branch: 'main',
-                    url: 'https://github.com/mayuri-dandhare/BankingSystem.git',
-                    credentialsId: 'github-creds'  // तुझ्या credentials ID ने replace कर
+                    url: 'https://github.com/mayuridndhre/banking-system.git',
+                    credentialsId: 'banking-system'  // Jenkins मध्ये add केलेला GitHub credential
             }
         }
 
         stage('Build') {
             steps {
-                echo 'Compiling JSP/Servlet project...'
-                // जर Maven वापरला असेल तर इथे "mvn clean install" चालवू
-                // JSP project असल्याने build step साधा ठेवला आहे
+                echo 'No build required for JSP project, just copying files...'
             }
         }
 
         stage('Deploy to Tomcat') {
             steps {
+                echo 'Deploying project to Tomcat...'
+                // Windows CMD command for deploy
                 bat """
-                if not exist "%DEPLOY_PATH%" mkdir "%DEPLOY_PATH%"
-                xcopy /E /Y "WebContent\\*" "%DEPLOY_PATH%\\"
+                xcopy /E /Y "%WORKSPACE%\\WebContent\\*" "%TOMCAT_HOME%\\webapps\\banking-system\\"
                 """
             }
         }
