@@ -25,17 +25,16 @@ pipeline {
             }
         }
 
-   stage('Deploy to Tomcat') {
+  stage('Deploy to Tomcat') {
     steps {
-        script {
-            bat '''
-            rmdir /S /Q "D:\\apache-tomcat-9.0.100\\webapps\\banking-system"
-            mkdir "D:\\apache-tomcat-9.0.100\\webapps\\banking-system"
-            xcopy /E /Y "C:\\ProgramData\\Jenkins\\.jenkins\\workspace\\banking-system\\src\\main\\webapp\\*" "D:\\apache-tomcat-9.0.100\\webapps\\banking-system\\"
-            '''
-        }
+        bat '''
+        rmdir /S /Q "D:\\apache-tomcat-9.0.100\\webapps\\banking-system"
+        mkdir "D:\\apache-tomcat-9.0.100\\webapps\\banking-system"
+        xcopy /E /Y "C:\\ProgramData\\Jenkins\\.jenkins\\workspace\\banking-system\\src\\main\\webapp\\*" "D:\\apache-tomcat-9.0.100\\webapps\\banking-system\\"
+        '''
     }
 }
+
 
 
 
