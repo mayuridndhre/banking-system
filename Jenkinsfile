@@ -25,15 +25,16 @@ pipeline {
             }
         }
 
-        stage('Deploy to Tomcat') {
-            steps {
-                echo 'Deploying project to Tomcat...'
-                // Windows CMD command for deploy
-                bat """
-                xcopy /E /Y "%WORKSPACE%\\WebContent\\*" "%TOMCAT_HOME%\\webapps\\banking-system\\"
-                """
-            }
-        }
+       stage('Deploy to Tomcat') {
+    steps {
+        echo "Deploying project to Tomcat..."
+        bat """
+        set TOMCAT_HOME=C:\\apache-tomcat-9.0.100
+        xcopy /E /Y "C:\\ProgramData\\Jenkins\\.jenkins\\workspace\\banking-system\\WebApp\\*" "%TOMCAT_HOME%\\webapps\\banking-system\\"
+        """
+    }
+}
+
     }
 
     post {
