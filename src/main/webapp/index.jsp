@@ -45,7 +45,7 @@
     <div class="container">
         <h1>Welcome to Banking System</h1>
         <div class="menu">
-            <h1>Hello Mayuri</h1>
+            <h1>Hello Mahi</h1>
             <a href="register.jsp">Register</a>
             <a href="openAccount.jsp">Open Account</a>
             <a href="deposit.jsp">Deposit</a>
