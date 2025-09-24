@@ -15,7 +15,7 @@ pipeline {
             steps {
                 git branch: 'main',
                     url: 'https://github.com/mayuridndhre/banking-system.git',
-                    credentialsId: 'banking-system'  // Jenkins मध्ये add केलेला GitHub credential
+                    credentialsId: 'github-creds'  // Jenkins मध्ये add केलेला GitHub credential
             }
         }
 
