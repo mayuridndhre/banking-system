@@ -2,7 +2,7 @@ pipeline {
     agent any
 
     tools {
-        jdk 'JDK-11'       // Jenkins मध्ये configure केलेले JDK नाव
+        jdk 'JDK-21'       // Jenkins मध्ये configure केलेले JDK नाव
     }
 
     environment {
